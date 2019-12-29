@@ -5,5 +5,4 @@ export interface ServiceRequest {
     CustomerName: string
     Title: string
     Description: string
-    dueDate: string
   }

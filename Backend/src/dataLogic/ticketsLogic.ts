@@ -15,7 +15,8 @@ export class Ticket
     private docClient: DocumentClient = createDynamoDBClient(),
     private S3 = createS3Bucket(),
     private table = process.env.SERVICE_TABLE,
-    private bucket = process.env.BUCKET
+    private bucket = process.env.BUCKET,
+    private index = process.env.SUB_INDEX
 ){}
 
 async createService(service: TicketItem ) : Promise<TicketItem>{
@@ -41,7 +42,7 @@ async createService(service: TicketItem ) : Promise<TicketItem>{
     }
  
  async signedUrl(userID:string , ticket: string): Promise<string>{
-    var params = {Bucket: this.bucket, Key: this.ticket_exist};
+    var params = {Bucket: this.bucket, Key: ticket};
     const uploadUrl= this.S3.getSignedUrl('putObject', params);
     
     await this.docClient.update({
@@ -75,7 +76,33 @@ async createService(service: TicketItem ) : Promise<TicketItem>{
     } 
     return (exist)   
     }
-      
+ 
+ async updateStatus(userID: string, ticket: string, status: string){
+     await this.docClient.update({
+         TableName: this.table,
+         Key: {userID, ticket},
+         UpdateExpression: "set Status=:STATUS",
+        ExpressionAttributeValues: {
+            ":STATUS": status
+        },
+        ReturnValues: "UPDATED_NEW"
+
+     });
+ }   
+ 
+ async getTickets(userID: string): Promise<TicketItem[]>{
+    const result = await this.docClient.query({
+        TableName: this.table,
+        IndexName: this.index,
+        KeyConditionExpression: "userID = :userId",
+        ExpressionAttributeValues: {
+          ":userID": userID
+        }
+    }).promise();
+    const items = result.Items;
+    return items as TicketItem[];
+ }
+
 }
 
 

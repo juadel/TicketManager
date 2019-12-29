@@ -22,7 +22,8 @@ export async function createService( event: APIGatewayProxyEvent ): Promise<Tick
       }
   
   const count = JSON.stringify((await increaseCounter(userId)).Attributes.ticket);
-  
+  const today = new Date();
+  const dueDate = new Date().setDate(today.getDate()+7);
 
   const ticketCount =count;
   const comments = [];
@@ -31,8 +32,9 @@ export async function createService( event: APIGatewayProxyEvent ): Promise<Tick
       { 
         userID: userId,
         ticket: ticketCount,
-        createdAt: new Date().toISOString(),
-        Status: false,
+        createdAt: today.toISOString(),
+        dueDate: dueDate.toString(),
+        Status: "Open",
         Comments: comments,
         ...newService
       }
@@ -61,4 +63,19 @@ export async function ticket_exist(event: APIGatewayProxyEvent): Promise<Boolean
   const ticketid = event.pathParameters.ticket;
   const exist = await ticket.ticket_exist(userId,ticketid);
   return exist;
+}
+
+export async function updateStatus(event: APIGatewayProxyEvent){
+  const status = event.queryStringParameters.status;
+  const userId = getUserId(event);
+  const ticketId = event.pathParameters.ticket;
+  const statusUpdated = await ticket.updateStatus(userId, ticketId, status)
+  return statusUpdated;
+}
+
+
+export async function getTickets(event: APIGatewayProxyEvent): Promise<TicketItem[]>{
+  const userId = getUserId(event);
+  const status = await ticket.getTickets(userId);
+  return status;
 }

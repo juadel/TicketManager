@@ -40,13 +40,13 @@ async createService(service: TicketItem ) : Promise<TicketItem>{
         return commenttoadd;
     }
  
- async signedUrl(userID:string , ServiceID: string): Promise<string>{
-    var params = {Bucket: this.bucket, Key: ServiceID};
+ async signedUrl(userID:string , ticket: string): Promise<string>{
+    var params = {Bucket: this.bucket, Key: this.ticket_exist};
     const uploadUrl= this.S3.getSignedUrl('putObject', params);
     
     await this.docClient.update({
         TableName: this.table,
-        Key: {userID, ServiceID},
+        Key: {userID, ticket},
         UpdateExpression: "set attachmentUrl=:URL",
         ExpressionAttributeValues: {
             ":URL": uploadUrl.split("?")[0]

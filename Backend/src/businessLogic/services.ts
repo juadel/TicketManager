@@ -24,13 +24,13 @@ export async function createService( event: APIGatewayProxyEvent ): Promise<Tick
   const count = JSON.stringify((await increaseCounter(userId)).Attributes.ticket);
   
 
-  const serviceId =count;
+  const ticketCount =count;
   const comments = [];
   const newService: ServiceRequest = typeof event.body === "string" ? JSON.parse(event.body) : event.body;
   const createdService = await ticket.createService(
       { 
         userID: userId,
-        ServiceID: serviceId,
+        ticket: ticketCount,
         createdAt: new Date().toISOString(),
         Status: false,
         Comments: comments,

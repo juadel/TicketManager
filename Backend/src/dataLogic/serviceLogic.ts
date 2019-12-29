@@ -15,9 +15,7 @@ export class Service
     private docClient: DocumentClient = createDynamoDBClient(),
     private S3 = createS3Bucket(),
     private serviceTable = process.env.SERVICE_TABLE,
-    private bucket = process.env.BUCKET,
-    private urlExp = process.env.EXPIRES
-    //private index = process.env.SUB_INDEX
+    private bucket = process.env.BUCKET
 ){}
 
 async createService(service: ServiceItem ) : Promise<ServiceItem>{
@@ -42,12 +40,10 @@ async createService(service: ServiceItem ) : Promise<ServiceItem>{
         return commenttoadd;
     }
  
- async signedUrl(userID: string, ServiceID: string): Promise<string>{
-    const uploadUrl = this.S3.getSignedUrl("PutObject", {
-        Bucket: this.bucket,
-        Key: ServiceID,
-        Expires: this.urlExp 
-    });
+ async signedUrl(userID:string , ServiceID: string): Promise<string>{
+    var params = {Bucket: this.bucket, Key: ServiceID};
+    const uploadUrl= this.S3.getSignedUrl('putObject', params);
+    
     await this.docClient.update({
         TableName: this.serviceTable,
         Key: {userID, ServiceID},
@@ -63,7 +59,7 @@ async createService(service: ServiceItem ) : Promise<ServiceItem>{
 
 }
 
-function createDynamoDBClient() {
+export function createDynamoDBClient() {
     if (process.env.IS_OFFLINE) {
       console.log("Creating a local DynamoDB instance");
     return new XAWS.DynamoDB.DocumentClient({

@@ -1,10 +1,10 @@
 
 import { APIGatewayProxyEvent } from "aws-lambda";
-import { ServiceItem } from "../models/service";
+import { TicketItem } from "../models/ticket";
 
 import { ServiceRequest } from "../requests/serviceRequest";
 import { commentRequest } from "../requests/commentRequest"
-import { Service } from "../dataLogic/serviceLogic";
+import { Ticket } from "../dataLogic/ticketsLogic";
 import { createCounter } from "../businessLogic/counter";
 import { isActiveCounter } from "../businessLogic/counter"
 import { increaseCounter} from "../businessLogic/counter"
@@ -12,10 +12,10 @@ import { getUserId } from "../lambda/getUserId";
 
 
 
-const serviceItem= new Service();
+const ticket= new Ticket();
 
 
-export async function createService( event: APIGatewayProxyEvent ): Promise<ServiceItem> {
+export async function createService( event: APIGatewayProxyEvent ): Promise<TicketItem> {
   const userId = getUserId(event); 
   if (!isActiveCounter(userId)){
         await createCounter(userId);
@@ -27,7 +27,7 @@ export async function createService( event: APIGatewayProxyEvent ): Promise<Serv
   const serviceId =count;
   const comments = [];
   const newService: ServiceRequest = typeof event.body === "string" ? JSON.parse(event.body) : event.body;
-  const createdService = await serviceItem.createService(
+  const createdService = await ticket.createService(
       { 
         userID: userId,
         ServiceID: serviceId,
@@ -41,19 +41,24 @@ export async function createService( event: APIGatewayProxyEvent ): Promise<Serv
 }
 
 export async function addcomment(event: APIGatewayProxyEvent) {
-  const serviceID :string = event.pathParameters.serviceID;
+  const ticketid :string = event.pathParameters.ticket;
   const userId = getUserId(event); 
   const newcomment : commentRequest = typeof event.body === "string" ? JSON.parse(event.body) : event.body; 
-  const result= await serviceItem.addComment(userId, serviceID, newcomment);
+  const result= await ticket.addComment(userId, ticketid, newcomment);
   return result;
 }
 
 export async function addUploadUrl(event: APIGatewayProxyEvent ): Promise<string> {
-  const Serviceid = event.pathParameters.serviceID;
+  const ticketid = event.pathParameters.ticket;
   const userId = getUserId(event);
-  const generatedUrl= await serviceItem.signedUrl(userId, Serviceid);
+  const generatedUrl= await ticket.signedUrl(userId, ticketid);
   return generatedUrl
   
 }
 
-
+export async function ticket_exist(event: APIGatewayProxyEvent): Promise<Boolean> {
+  const userId = getUserId(event);
+  const ticketid = event.pathParameters.ticket;
+  const exist = await ticket.ticket_exist(userId,ticketid);
+  return exist;
+}

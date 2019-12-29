@@ -1,7 +1,7 @@
 import * as AWS from "aws-sdk";
 import * as AWSXRay from "aws-xray-sdk";
 import { DocumentClient } from "aws-sdk/clients/dynamodb";
-import { ServiceItem } from "../models/service";
+import { TicketItem } from "../models/ticket";
 import { commentRequest } from "../requests/commentRequest";
 
 // const AWSXRay = require('aws-xray-sdk-core');
@@ -10,27 +10,27 @@ import { commentRequest } from "../requests/commentRequest";
 const XAWS = AWSXRay.captureAWS(AWS);
 
 
-export class Service
+export class Ticket
 { constructor (
     private docClient: DocumentClient = createDynamoDBClient(),
     private S3 = createS3Bucket(),
-    private serviceTable = process.env.SERVICE_TABLE,
+    private table = process.env.SERVICE_TABLE,
     private bucket = process.env.BUCKET
 ){}
 
-async createService(service: ServiceItem ) : Promise<ServiceItem>{
+async createService(service: TicketItem ) : Promise<TicketItem>{
     await this.docClient.put({
-        TableName: this.serviceTable,
+        TableName: this.table,
         Item: service
     }).promise();
     return service
     }
     
- async addComment(userID: string, ServiceID: string , comment: commentRequest){
+ async addComment(userID: string, ticket: string , comment: commentRequest){
     
     const commenttoadd =await this.docClient.update({
-            TableName: this.serviceTable,
-            Key: { userID, ServiceID},
+            TableName: this.table,
+            Key: { userID, ticket},
             UpdateExpression: 'set Comments = list_append(Comments, :newComment)',
             ExpressionAttributeValues:{
                 ':newComment':[comment],
@@ -45,7 +45,7 @@ async createService(service: ServiceItem ) : Promise<ServiceItem>{
     const uploadUrl= this.S3.getSignedUrl('putObject', params);
     
     await this.docClient.update({
-        TableName: this.serviceTable,
+        TableName: this.table,
         Key: {userID, ServiceID},
         UpdateExpression: "set attachmentUrl=:URL",
         ExpressionAttributeValues: {
@@ -57,7 +57,27 @@ async createService(service: ServiceItem ) : Promise<ServiceItem>{
 
  }
 
+ async ticket_exist(userID: string, ticket: string){
+    var params= {
+        TableName: this.table, 
+        Key:
+        {
+            userID: userID, 
+            ticket: ticket
+        }
+    }
+
+    var exist: Boolean = false
+    const result = await this.docClient.get(params).promise(); 
+        
+    if (result.Item !== undefined && result.Item !==null){
+        exist = true
+    } 
+    return (exist)   
+    }
+      
 }
+
 
 export function createDynamoDBClient() {
     if (process.env.IS_OFFLINE) {

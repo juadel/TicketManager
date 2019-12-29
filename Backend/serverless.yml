@@ -46,7 +46,7 @@ functions:
     events:
       - http:
           method: post
-          path: service/{serviceID}/attachment
+          path: ticket/{ticket}/attachment
           cors: true    
     iamRoleStatementsInherit: true
     iamRoleStatementsName: ${self:service.name}-AddUploadUrl-Role-${self:provider.stage}
@@ -60,16 +60,50 @@ functions:
           - s3:PutObject
           - s3:GetObject
         Resource: arn:aws:s3:::${self:provider.environment.BUCKET}/*
-                       
-  CreateService:
-    handler: src/lambda/http/createService.handler
+  
+  Gettickets:
+    handler: src/lambda/http/getTickets.handler
+    events:
+      - http:
+          method: get 
+          path: tickets
+          cors: true 
+    iamRoleStatementsInherit: true 
+    iamRoleStatementsName: ${self:service.name}-gettickets-role-${self:provider.stage}
+    iamRoleStatements:
+      - Effect: Allow 
+        Action:
+          - dynamodb:GetItem
+          - dynamodb:Query
+        Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.SERVICE_TABLE} 
+
+
+  UpdateStatus:
+    handler: src/lambda/http/updateStatus.handler
+    events:
+      - http:
+          method: patch
+          path: ticket/{ticket}
+          cors: true
+    iamRoleStatementsInherit: true
+    iamRoleStatementsName: ${self:service.name}-updatestatus-Role-${self:provider.stage}
+    iamRoleStatements:
+      - Effect: Allow
+        Action:
+          - dynamodb:PutItem
+          - dynamodb:UpdateItem
+        Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.SERVICE_TABLE}       
+      
+
+  CreateTicket:
+    handler: src/lambda/http/createTicket.handler
     events:
       - http:
           method: post
-          path: service
+          path: ticket
           cors: true     
     iamRoleStatementsInherit: true
-    iamRoleStatementsName: ${self:service.name}-CreateService-Role-${self:provider.stage}
+    iamRoleStatementsName: ${self:service.name}-ticket-Role-${self:provider.stage}
     iamRoleStatements:
       - Effect: Allow
         Action:
@@ -88,7 +122,7 @@ functions:
     events:
       - http:
           method: patch
-          path: service/{serviceID}/comment
+          path: ticket/{ticket}/comment
           cors: true      
     iamRoleStatementsInherit: true
     iamRoleStatementsName: ${self:service.name}-addComment-Role-${self:provider.stage}
@@ -97,32 +131,34 @@ functions:
         Action:
           - dynamodb:PutItem
           - dynamodb:UpdateItem
+          - dynamodb:GetItem
+          - dynamodb:Query
         Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.SERVICE_TABLE} 
 
 
 resources:
   Resources:
-    ServiceManagertable:
+    TicketManagertable:
       Type: AWS::DynamoDB::Table 
       Properties:
         AttributeDefinitions:
           - AttributeName: userID
             AttributeType: S
-          - AttributeName: ServiceID
+          - AttributeName: ticket
             AttributeType: S
           - AttributeName: createdAt
             AttributeType: S  
         KeySchema:
           - AttributeName: userID
             KeyType: HASH
-          - AttributeName: ServiceID
+          - AttributeName: ticket
             KeyType: RANGE
         BillingMode: PAY_PER_REQUEST
         TableName: ${self:provider.environment.SERVICE_TABLE}
         GlobalSecondaryIndexes:
           - IndexName: ${self:provider.environment.SUB_INDEX}
             KeySchema:
-              - AttributeName: ServiceID
+              - AttributeName: ticket
                 KeyType: HASH
               - AttributeName: createdAt
                 KeyType: RANGE

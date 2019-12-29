@@ -1,7 +1,7 @@
 
 import { DocumentClient } from "aws-sdk/clients/dynamodb";
 import { counterItem } from "../models/counter";
-import { createDynamoDBClient} from "../dataLogic/serviceLogic";
+import { createDynamoDBClient} from "./ticketsLogic";
 
 
 

@@ -34,7 +34,7 @@ export async function createService( event: APIGatewayProxyEvent ): Promise<Tick
         ticket: ticketCount,
         createdAt: today.toISOString(),
         dueDate: dueDate.toString(),
-        Status: "Open",
+        State: "Open",
         Comments: comments,
         ...newService
       }

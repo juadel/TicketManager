@@ -3,7 +3,7 @@ import { APIGatewayProxyEvent, APIGatewayProxyHandler, APIGatewayProxyResult } f
 import { updateStatus} from "../../businessLogic/services"
 
 export const handler: APIGatewayProxyHandler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
-    const comment = await updateStatus(event)
+    const newStatus = await updateStatus(event)
   
     return {
       statusCode: 200,
@@ -11,8 +11,8 @@ export const handler: APIGatewayProxyHandler = async (event: APIGatewayProxyEven
           'Access-Control-Allow-Origin': '*',
           'Access-Control-Allow-Credentials': true
         },
-      body: JSON.stringify({msg:"comment added successfully",
-        comment
+      body: JSON.stringify({msg:"Status has been updated",
+        newStatus
       })
     };
   };

@@ -66,16 +66,28 @@ export async function ticket_exist(event: APIGatewayProxyEvent): Promise<Boolean
 }
 
 export async function updateStatus(event: APIGatewayProxyEvent){
-  const status = event.queryStringParameters.status;
-  const userId = getUserId(event);
-  const ticketId = event.pathParameters.ticket;
-  const statusUpdated = await ticket.updateStatus(userId, ticketId, status)
-  return statusUpdated;
-}
+  if (event.queryStringParameters !== null && event.queryStringParameters !== undefined) {
+    if (event.queryStringParameters.state !== undefined &&
+      event.queryStringParameters.state !== null &&
+      event.queryStringParameters.state !== "") {
+      console.log("Received proxy: " + event.queryStringParameters.state);
+      var state = event.queryStringParameters.state;
+      // const userId = getUserId(event);
+      // const ticketId = event.pathParameters.ticket;
+      // const statusUpdated = await ticket.updateStatus(userId, ticketId, state)
+      // return statusUpdated;
+      return state;
+    }
+  }
+    else{
+      return JSON.stringify({msg:"The request could not be completed"})
+    };
+  }
 
 
-export async function getTickets(event: APIGatewayProxyEvent): Promise<TicketItem[]>{
-  const userId = getUserId(event);
-  const status = await ticket.getTickets(userId);
-  return status;
-}
+
+// export async function getTickets(event: APIGatewayProxyEvent): Promise<TicketItem[]>{
+//   const userId = getUserId(event);
+//   const status = await ticket.getTickets(userId);
+//   return status;
+// }

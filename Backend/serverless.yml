@@ -66,7 +66,7 @@ functions:
     events:
       - http:
           method: get 
-          path: tickets
+          path: ticket
           cors: true 
     iamRoleStatementsInherit: true 
     iamRoleStatementsName: ${self:service.name}-gettickets-role-${self:provider.stage}
@@ -83,7 +83,7 @@ functions:
     events:
       - http:
           method: patch
-          path: ticket/{ticket}/status
+          path: ticket/state/{ticket}
           cors: true
     iamRoleStatementsInherit: true
     iamRoleStatementsName: ${self:service.name}-updatestatus-Role-${self:provider.stage}
@@ -121,7 +121,7 @@ functions:
     handler: src/lambda/http/addComment.handler
     events:
       - http:
-          method: patch
+          method: post
           path: ticket/{ticket}/comment
           cors: true      
     iamRoleStatementsInherit: true

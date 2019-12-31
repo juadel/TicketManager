@@ -72,7 +72,7 @@ async createService(service: TicketItem ) : Promise<TicketItem>{
     const result = await this.docClient.get(params).promise(); 
         
     if (result.Item !== undefined && result.Item !==null){
-        exist = true
+        exist = true;
     } 
     return exist;
     }

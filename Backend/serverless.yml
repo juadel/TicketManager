@@ -54,6 +54,8 @@ functions:
       - Effect: Allow
         Action:
             - dynamodb:UpdateItem
+            - dynamodb:Query
+            - dynamodb:GetItem
         Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.SERVICE_TABLE}
       - Effect: Allow
         Action:

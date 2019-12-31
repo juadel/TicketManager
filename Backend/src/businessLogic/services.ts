@@ -51,21 +51,17 @@ export async function addcomment(event: APIGatewayProxyEvent) {
 }
 
 export async function addUploadUrl(event: APIGatewayProxyEvent ): Promise<string> {
-  if (ticket_exist(event)){
   const ticketid = event.pathParameters.ticket;
   const userId = getUserId(event);
-  const generatedUrl= await ticket.signedUrl(userId, ticketid);
-  return generatedUrl
-  }
+  if (ticket.ticket_exist(userId, ticketid)){
+    const generatedUrl= await ticket.signedUrl(userId, ticketid);
+    return generatedUrl;
+  }else{
+    return "Ticket dont exist";
+  };
   
 }
 
-export async function ticket_exist(event: APIGatewayProxyEvent): Promise<Boolean> {
-  const userId = getUserId(event);
-  const ticketid = event.pathParameters.ticket;
-  const exist = await ticket.ticket_exist(userId,ticketid);
-  return exist;
-}
 
 export async function updateStatus(event: APIGatewayProxyEvent){
   if (event.queryStringParameters !== null && event.queryStringParameters !== undefined) {

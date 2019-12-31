@@ -60,18 +60,15 @@ async createService(service: TicketItem ) : Promise<TicketItem>{
 
  async ticket_exist(userID: string, ticket: string){
     var params= {
-        TableName: this.table, 
-        Key:
-        {
-            userID: userID, 
-            ticket: ticket,
-        }
+        ExpressionAttributeValues: {':u': userID, ':t': ticket},
+        TableName: this.table,
+        KeyConditionExpression: 'ticket = :t and userID = :u', 
     };
 
     var exist: Boolean = false;
-    const result = await this.docClient.get(params).promise(); 
+    const result = await this.docClient.query(params).promise(); 
         
-    if (result.Item !== undefined && result.Item !==null){
+    if (result.Items !== [] || result.Items !==null){
         exist = true;
     } 
     return exist;

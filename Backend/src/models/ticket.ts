@@ -6,7 +6,7 @@ export interface TicketItem {
     Title: string
     Description: string
     dueDate: string
-    State: string
+    TicketStatus: string
     Comments: Array<string>
     attachmentUrl?: string
   }

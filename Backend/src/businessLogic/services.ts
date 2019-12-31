@@ -34,7 +34,7 @@ export async function createService( event: APIGatewayProxyEvent ): Promise<Tick
         ticket: ticketCount,
         createdAt: today.toISOString(),
         dueDate: dueDate.toString(),
-        State: "Open",
+        TicketStatus: "Open",
         Comments: comments,
         ...newService
       }
@@ -51,10 +51,12 @@ export async function addcomment(event: APIGatewayProxyEvent) {
 }
 
 export async function addUploadUrl(event: APIGatewayProxyEvent ): Promise<string> {
+  if (ticket_exist(event)){
   const ticketid = event.pathParameters.ticket;
   const userId = getUserId(event);
   const generatedUrl= await ticket.signedUrl(userId, ticketid);
   return generatedUrl
+  }
   
 }
 

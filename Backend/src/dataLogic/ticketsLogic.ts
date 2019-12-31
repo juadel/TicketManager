@@ -64,31 +64,31 @@ async createService(service: TicketItem ) : Promise<TicketItem>{
         Key:
         {
             userID: userID, 
-            ticket: ticket
+            ticket: ticket,
         }
-    }
+    };
 
-    var exist: Boolean = false
+    var exist: Boolean = false;
     const result = await this.docClient.get(params).promise(); 
         
     if (result.Item !== undefined && result.Item !==null){
         exist = true
     } 
-    return (exist)   
+    return exist;
     }
  
- async updateStatus(userID: string, ticket: string, state: string){
-    const newStatus= await this.docClient.update({
+ async updateStatus(userID: string, ticket: string, newStatus: string){
+    const newSttus= await this.docClient.update({
          TableName: this.table,
          Key: {userID: userID, ticket:ticket},
-         UpdateExpression: "set State=:STATE",
+         UpdateExpression: "set TicketStatus= :NEWSTATUS",
         ExpressionAttributeValues: {
-            ":STATE": state,
+            ":NEWSTATUS": newStatus,
         },
         ReturnValues: "UPDATED_NEW"
 
      }).promise();
-     return newStatus;
+     return newSttus;
  }   
  
  async getTickets(userID: string): Promise<TicketItem[]>{

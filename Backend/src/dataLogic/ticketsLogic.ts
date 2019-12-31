@@ -80,10 +80,10 @@ async createService(service: TicketItem ) : Promise<TicketItem>{
  async updateStatus(userID: string, ticket: string, state: string){
     const newStatus= await this.docClient.update({
          TableName: this.table,
-         Key: {userID, ticket},
+         Key: {userID: userID, ticket:ticket},
          UpdateExpression: "set Status=:STATUS",
         ExpressionAttributeValues: {
-            ":STATUS": state
+            ":STATUS": state,
         },
         ReturnValues: "UPDATED_NEW"
 

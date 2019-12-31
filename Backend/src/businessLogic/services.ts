@@ -72,11 +72,11 @@ export async function updateStatus(event: APIGatewayProxyEvent){
       event.queryStringParameters.state !== "") {
       console.log("Received proxy: " + event.queryStringParameters.state);
       var state = event.queryStringParameters.state;
-      // const userId = getUserId(event);
-      // const ticketId = event.pathParameters.ticket;
-      // const statusUpdated = await ticket.updateStatus(userId, ticketId, state)
-      // return statusUpdated;
-      return state;
+      const userId = getUserId(event);
+      const ticketId = event.pathParameters.ticket;
+      const statusUpdated = await ticket.updateStatus(userId, ticketId, state)
+      return statusUpdated;
+      
     }
   }
     else{

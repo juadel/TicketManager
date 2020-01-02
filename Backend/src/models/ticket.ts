@@ -1,12 +1,12 @@
-export interface ServiceItem {
+export interface TicketItem {
     userID: string
-    ServiceID: string
+    ticket: string
     CustomerName: string
     createdAt: string
     Title: string
     Description: string
     dueDate: string
-    Status: boolean
+    TicketStatus: string
     Comments: Array<string>
     attachmentUrl?: string
   }

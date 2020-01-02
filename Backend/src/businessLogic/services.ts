@@ -1,7 +1,7 @@
 
 import { APIGatewayProxyEvent } from "aws-lambda";
 import { TicketItem } from "../models/ticket";
-import  Axios  from 'axios';
+
 import { ServiceRequest } from "../requests/serviceRequest";
 import { commentRequest } from "../requests/commentRequest"
 import { Ticket } from "../dataLogic/ticketsLogic";
@@ -95,7 +95,3 @@ export async function getTickets(event: APIGatewayProxyEvent): Promise<TicketIte
   return status;
 }
 
-export async function uploadFile(url: string, file: Buffer) : Promise<void>{
-await Axios.put(url, file);
-
-}

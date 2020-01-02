@@ -94,7 +94,7 @@ async createService(service: TicketItem ) : Promise<TicketItem>{
         IndexName: this.index,
         KeyConditionExpression: "userID = :userId",
         ExpressionAttributeValues: {
-          ":userID": userID
+          ":userId": userID
         }
     }).promise();
     const items = result.Items;

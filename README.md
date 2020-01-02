@@ -24,7 +24,7 @@ the application will complete the rest of the ticket body:
  
      {
         "userID": "google-oauth2|103538163944583965600",   (ID is created for each user)
-        "ticket": "1",					   (a Ticket ID is created by an Atomic Counter in order to get a consecutive number)
+        "ticket": "1",		 (a Ticket ID is created by an Atomic Counter in order to get a consecutive number)
         "createdAt": "2020-01-02T04:57:39.432Z",	   (ticket creation date)
         "dueDate": "2020-01-07T04:57:39.432Z",             (due Date set 5 days by defaul)
         "TicketStatus": "Open",				   (ticket Status can be change while the service is delivery)

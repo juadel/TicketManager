@@ -1,7 +1,7 @@
 
 
 # CAPSTONE PROJECT - CLOUD DEVELOPER NANODEGREE
-## TICKET MANAGER
+## SERVERLESS - TICKET MANAGER
 
 Ticket Manager is a cloud application that allows an user to register/login to create his own Services tracker System. the user is allow to create a ticket, update the ticket status, Add comments to a ticket, add a file to a ticket and get all available tickets.
 

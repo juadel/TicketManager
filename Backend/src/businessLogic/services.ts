@@ -50,18 +50,22 @@ export async function addcomment(event: APIGatewayProxyEvent) {
   return result;
 }
 
-export async function addUploadUrl(event: APIGatewayProxyEvent ): Promise<string> {
+export async function addUploadUrl(event: APIGatewayProxyEvent ): Promise<String>{
   const ticketid = event.pathParameters.ticket;
   const userId = getUserId(event);
-  if (ticket.ticket_exist(userId, ticketid)){
+  if (ticket_exist(event)){
     const generatedUrl= await ticket.signedUrl(userId, ticketid);
     return generatedUrl;
-  }else{
-    return "Ticket dont exist";
-  };
+  }
   
 }
 
+export async function ticket_exist(event: APIGatewayProxyEvent): Promise<Boolean>{
+  const ticketid = event.pathParameters.ticket;
+  const userId = getUserId(event);
+  const exist = await ticket.ticket_exist(userId, ticketid);
+  return exist;
+}
 
 export async function updateStatus(event: APIGatewayProxyEvent){
   if (event.queryStringParameters !== null && event.queryStringParameters !== undefined) {
@@ -84,8 +88,8 @@ export async function updateStatus(event: APIGatewayProxyEvent){
 
 
 
-// export async function getTickets(event: APIGatewayProxyEvent): Promise<TicketItem[]>{
-//   const userId = getUserId(event);
-//   const status = await ticket.getTickets(userId);
-//   return status;
-// }
+export async function getTickets(event: APIGatewayProxyEvent): Promise<TicketItem[]>{
+  const userId = getUserId(event);
+  const status = await ticket.getTickets(userId);
+  return status;
+}

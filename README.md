@@ -23,12 +23,12 @@ To create a ticket you must provide JSON Body, PATH: /ticket
 the application will complete the rest of the ticket body:
  
      {
-        "userID": "google-oauth2|103538163944583965600",   (ID is created for each user)
-        "ticket": "1",		 (a Ticket ID is created by an Atomic Counter in order to get a consecutive number)
-        "createdAt": "2020-01-02T04:57:39.432Z",	   (ticket creation date)
-        "dueDate": "2020-01-07T04:57:39.432Z",             (due Date set 5 days by defaul)
-        "TicketStatus": "Open",				   (ticket Status can be change while the service is delivery)
-        "Comments": [],					   ( user can add comments to the ticket, in order to keep track of ticket process while resoultion)
+        "userID": "google-oauth2|103538163944583965600",(ID is created for each user)
+        "ticket": "1", (a Ticket ID is created by an Atomic Counter in order to get a consecutive number)
+        "createdAt": "2020-01-02T04:57:39.432Z", (ticket creation date)
+        "dueDate": "2020-01-07T04:57:39.432Z", (due Date set 5 days by defaul)
+        "TicketStatus": "Open",	(ticket Status can be change while the service is delivery)
+        "Comments": [],	( user can add comments to the ticket, in order to keep track of ticket process)
         "CustomerName": "Juan Delgado",
         "Title": "DVR DOWN 2",
         "Description": "All cameras are down"

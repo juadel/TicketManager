@@ -1,0 +1,335 @@
+{
+	"info": {
+		"_postman_id": "1750a28e-e9bc-47ec-b96a-74f96929d2b9",
+		"name": "TicketManager",
+		"description": "Test Requests for the Ticket Manager Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET TICKETS",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9VUTBOVVpHTmpOQlFrTkJORGszUTBOQk1EYzVOekE0UmpaR01EQkZOMFZCUmpBME5Ea3hSZyJ9.eyJnaXZlbl9uYW1lIjoiSnVhbiBNLiIsImZhbWlseV9uYW1lIjoiRGVsZ2FkbyIsIm5pY2tuYW1lIjoianVhZGVsbWFyIiwibmFtZSI6Ikp1YW4gTS4gRGVsZ2FkbyIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQUF1RTdtQTZ4ZWhlWUNqNWVOQS1Hc05saldRcG4tTGRNeTI3eTZvczN5SE03dyIsImxvY2FsZSI6ImVuIiwidXBkYXRlZF9hdCI6IjIwMTktMTItMzFUMDI6NTE6MzEuMTQ2WiIsImVtYWlsIjoianVhZGVsbWFyQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJpc3MiOiJodHRwczovL2Rldi1xbnY3YXAxYi5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDM1MzgxNjM5NDQ1ODM5NjU2MDAiLCJhdWQiOiJ3MGtPUTVaZlpQaDA0VGZlVTBLeGNSajJNOFZ3N2JMUSIsImlhdCI6MTU3Nzc2MDY5MSwiZXhwIjoxNTc3Nzk2NjkxfQ.Uvkc4Pre6Gre2IX04nhnWyMnd2jePngX6M9SLaYF_54mHVCRGggZBSm12EM0QEtHbAVPnnSV9s7CEpi5bT1iXWkLToMbR8u7X-Y_v4_lAqLCgJPmqy36ggEQgoI34wkhEnTS9wKzR8Q2UCiCV3tJnIihpReeyDP9P9_h0c8atucudKdds70eghwl0vNFvLnBDAaMHoJzjsWyQDqAQcSLbW7hJ9HA_gh21SPKmmsJdlpFSysIdtFPvR5MhUDZ-3gxHMuxPJ-7GJP-nIfDYeEI6OM70B9rf_HKvo7y1GYwhHqof7Nn0KMOV2LPQt2liIgveRs8SlvWU4z_HrtEqjuyXA",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{Domain}}.execute-api.ca-central-1.amazonaws.com/dev/ticket",
+					"protocol": "https",
+					"host": [
+						"{{Domain}}",
+						"execute-api",
+						"ca-central-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"ticket"
+					]
+				},
+				"description": "Get all Tickets from an user"
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE  A TICKET",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9VUTBOVVpHTmpOQlFrTkJORGszUTBOQk1EYzVOekE0UmpaR01EQkZOMFZCUmpBME5Ea3hSZyJ9.eyJnaXZlbl9uYW1lIjoiSnVhbiBNLiIsImZhbWlseV9uYW1lIjoiRGVsZ2FkbyIsIm5pY2tuYW1lIjoianVhZGVsbWFyIiwibmFtZSI6Ikp1YW4gTS4gRGVsZ2FkbyIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQUF1RTdtQTZ4ZWhlWUNqNWVOQS1Hc05saldRcG4tTGRNeTI3eTZvczN5SE03dyIsImxvY2FsZSI6ImVuIiwidXBkYXRlZF9hdCI6IjIwMTktMTItMzFUMDI6NTE6MzEuMTQ2WiIsImVtYWlsIjoianVhZGVsbWFyQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJpc3MiOiJodHRwczovL2Rldi1xbnY3YXAxYi5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDM1MzgxNjM5NDQ1ODM5NjU2MDAiLCJhdWQiOiJ3MGtPUTVaZlpQaDA0VGZlVTBLeGNSajJNOFZ3N2JMUSIsImlhdCI6MTU3Nzc2MDY5MSwiZXhwIjoxNTc3Nzk2NjkxfQ.Uvkc4Pre6Gre2IX04nhnWyMnd2jePngX6M9SLaYF_54mHVCRGggZBSm12EM0QEtHbAVPnnSV9s7CEpi5bT1iXWkLToMbR8u7X-Y_v4_lAqLCgJPmqy36ggEQgoI34wkhEnTS9wKzR8Q2UCiCV3tJnIihpReeyDP9P9_h0c8atucudKdds70eghwl0vNFvLnBDAaMHoJzjsWyQDqAQcSLbW7hJ9HA_gh21SPKmmsJdlpFSysIdtFPvR5MhUDZ-3gxHMuxPJ-7GJP-nIfDYeEI6OM70B9rf_HKvo7y1GYwhHqof7Nn0KMOV2LPQt2liIgveRs8SlvWU4z_HrtEqjuyXA",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"CustomerName\": \"Juan Delgado\",\n    \"Title\": \"DVR DOWN 2\",\n    \"Description\": \"All cameras are down since las week333\" \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{Domain}}.execute-api.ca-central-1.amazonaws.com/dev/ticket",
+					"protocol": "https",
+					"host": [
+						"{{Domain}}",
+						"execute-api",
+						"ca-central-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"ticket"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE TICKET STATUS",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9VUTBOVVpHTmpOQlFrTkJORGszUTBOQk1EYzVOekE0UmpaR01EQkZOMFZCUmpBME5Ea3hSZyJ9.eyJnaXZlbl9uYW1lIjoiSnVhbiBNLiIsImZhbWlseV9uYW1lIjoiRGVsZ2FkbyIsIm5pY2tuYW1lIjoianVhZGVsbWFyIiwibmFtZSI6Ikp1YW4gTS4gRGVsZ2FkbyIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQUF1RTdtQTZ4ZWhlWUNqNWVOQS1Hc05saldRcG4tTGRNeTI3eTZvczN5SE03dyIsImxvY2FsZSI6ImVuIiwidXBkYXRlZF9hdCI6IjIwMTktMTItMzFUMDI6NDI6MDMuNzA5WiIsImVtYWlsIjoianVhZGVsbWFyQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJpc3MiOiJodHRwczovL2Rldi1xbnY3YXAxYi5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDM1MzgxNjM5NDQ1ODM5NjU2MDAiLCJhdWQiOiJ3MGtPUTVaZlpQaDA0VGZlVTBLeGNSajJNOFZ3N2JMUSIsImlhdCI6MTU3Nzc2MDEyNCwiZXhwIjoxNTc3Nzk2MTI0fQ.f3Rdok2Mj6pNlPX7ngKM5l7s92_6DncTCtIqsMns2FJGKQMy4QgN-3ya3PGF82rEEr_DNyO6SivUe1phgygXqbFzwUNrhp0nQ3qcOhNnKUzBLIup1aSeso2mNk4sms2P_ju-HZcvLDJvlDiJ86_uc1IiB6f9qykYvN8-q8PeoQYQXpOVtD4NweonUkiT79PCn-7jCf3L-GFMJBG09P2DyzWI6S5kax6Gdq8srx2AUADyPm8RDtNehpa8wC4NC0mLN1AkhaqERR2Ggotja20Zz9SQvWIgBZWaPA2Z8z5hUhecwtE1fEi98KpbuGyXirYI0Jjyx0i5aEhtghe2q95BNw",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{Domain}}.execute-api.ca-central-1.amazonaws.com/dev/ticket/state/4?state=Close",
+					"protocol": "https",
+					"host": [
+						"{{Domain}}",
+						"execute-api",
+						"ca-central-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"ticket",
+						"state",
+						"4"
+					],
+					"query": [
+						{
+							"key": "state",
+							"value": "Close"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADD A COMMENT ON A TCIKET",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9VUTBOVVpHTmpOQlFrTkJORGszUTBOQk1EYzVOekE0UmpaR01EQkZOMFZCUmpBME5Ea3hSZyJ9.eyJnaXZlbl9uYW1lIjoiSnVhbiBNLiIsImZhbWlseV9uYW1lIjoiRGVsZ2FkbyIsIm5pY2tuYW1lIjoianVhZGVsbWFyIiwibmFtZSI6Ikp1YW4gTS4gRGVsZ2FkbyIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQUF1RTdtQTZ4ZWhlWUNqNWVOQS1Hc05saldRcG4tTGRNeTI3eTZvczN5SE03dyIsImxvY2FsZSI6ImVuIiwidXBkYXRlZF9hdCI6IjIwMTktMTItMzFUMDI6NDI6MDMuNzA5WiIsImVtYWlsIjoianVhZGVsbWFyQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJpc3MiOiJodHRwczovL2Rldi1xbnY3YXAxYi5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDM1MzgxNjM5NDQ1ODM5NjU2MDAiLCJhdWQiOiJ3MGtPUTVaZlpQaDA0VGZlVTBLeGNSajJNOFZ3N2JMUSIsImlhdCI6MTU3Nzc2MDEyNCwiZXhwIjoxNTc3Nzk2MTI0fQ.f3Rdok2Mj6pNlPX7ngKM5l7s92_6DncTCtIqsMns2FJGKQMy4QgN-3ya3PGF82rEEr_DNyO6SivUe1phgygXqbFzwUNrhp0nQ3qcOhNnKUzBLIup1aSeso2mNk4sms2P_ju-HZcvLDJvlDiJ86_uc1IiB6f9qykYvN8-q8PeoQYQXpOVtD4NweonUkiT79PCn-7jCf3L-GFMJBG09P2DyzWI6S5kax6Gdq8srx2AUADyPm8RDtNehpa8wC4NC0mLN1AkhaqERR2Ggotja20Zz9SQvWIgBZWaPA2Z8z5hUhecwtE1fEi98KpbuGyXirYI0Jjyx0i5aEhtghe2q95BNw",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "Bearer",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Comments\": \"third Comment on the ticket\"\n\t\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{Domain}}.execute-api.ca-central-1.amazonaws.com/dev/ticket/4/comment",
+					"protocol": "https",
+					"host": [
+						"{{Domain}}",
+						"execute-api",
+						"ca-central-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"ticket",
+						"4",
+						"comment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE A SIGNED URL",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9VUTBOVVpHTmpOQlFrTkJORGszUTBOQk1EYzVOekE0UmpaR01EQkZOMFZCUmpBME5Ea3hSZyJ9.eyJnaXZlbl9uYW1lIjoiSnVhbiBNLiIsImZhbWlseV9uYW1lIjoiRGVsZ2FkbyIsIm5pY2tuYW1lIjoianVhZGVsbWFyIiwibmFtZSI6Ikp1YW4gTS4gRGVsZ2FkbyIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQUF1RTdtQTZ4ZWhlWUNqNWVOQS1Hc05saldRcG4tTGRNeTI3eTZvczN5SE03dyIsImxvY2FsZSI6ImVuIiwidXBkYXRlZF9hdCI6IjIwMTktMTItMzFUMDI6NDI6MDMuNzA5WiIsImVtYWlsIjoianVhZGVsbWFyQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJpc3MiOiJodHRwczovL2Rldi1xbnY3YXAxYi5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDM1MzgxNjM5NDQ1ODM5NjU2MDAiLCJhdWQiOiJ3MGtPUTVaZlpQaDA0VGZlVTBLeGNSajJNOFZ3N2JMUSIsImlhdCI6MTU3Nzc2MDEyNCwiZXhwIjoxNTc3Nzk2MTI0fQ.f3Rdok2Mj6pNlPX7ngKM5l7s92_6DncTCtIqsMns2FJGKQMy4QgN-3ya3PGF82rEEr_DNyO6SivUe1phgygXqbFzwUNrhp0nQ3qcOhNnKUzBLIup1aSeso2mNk4sms2P_ju-HZcvLDJvlDiJ86_uc1IiB6f9qykYvN8-q8PeoQYQXpOVtD4NweonUkiT79PCn-7jCf3L-GFMJBG09P2DyzWI6S5kax6Gdq8srx2AUADyPm8RDtNehpa8wC4NC0mLN1AkhaqERR2Ggotja20Zz9SQvWIgBZWaPA2Z8z5hUhecwtE1fEi98KpbuGyXirYI0Jjyx0i5aEhtghe2q95BNw",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://{{Domain}}.execute-api.ca-central-1.amazonaws.com/dev/ticket/6/attachment",
+					"protocol": "https",
+					"host": [
+						"{{Domain}}",
+						"execute-api",
+						"ca-central-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"ticket",
+						"6",
+						"attachment"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "accessToken",
+				"value": "1ehb-lvXKymyly3aqAiQVCbsD6f8jpXx",
+				"type": "string"
+			},
+			{
+				"key": "tokenType",
+				"value": "Bearer",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "f812717a-2a0b-47fe-a021-4650ff39b6c1",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "370ab860-2b6f-44ce-a15a-f14d131d16d7",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "a53c5eb0-48ee-488e-aeb7-047b6a6f164a",
+			"key": "Domain",
+			"value": "lu4tee0pvg",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

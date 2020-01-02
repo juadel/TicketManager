@@ -5,15 +5,15 @@ import { addUploadUrl, ticket_exist } from "../../businessLogic/services"
 export const handler: APIGatewayProxyHandler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
     const exist :Boolean = await ticket_exist(event)
     if (exist == true){
-    const file = await addUploadUrl(event);
-    return {
+    const url = await addUploadUrl(event);
+        return {
         statusCode: 200,
         headers: {
             'Access-Control-Allow-Origin': '*',
             'Access-Control-Allow-Credentials': true
           },
         body: JSON.stringify({msg:"Signed Url created",
-          file})
+          url})
     }
   }else{
     return{

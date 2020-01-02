@@ -1,7 +1,7 @@
 
 import { APIGatewayProxyEvent } from "aws-lambda";
 import { TicketItem } from "../models/ticket";
-
+import  Axios  from 'axios';
 import { ServiceRequest } from "../requests/serviceRequest";
 import { commentRequest } from "../requests/commentRequest"
 import { Ticket } from "../dataLogic/ticketsLogic";
@@ -23,7 +23,8 @@ export async function createService( event: APIGatewayProxyEvent ): Promise<Tick
   
   const count = JSON.stringify((await increaseCounter(userId)).Attributes.ticket);
   const today = new Date();
-  const dueDate = new Date().setDate(today.getDate()+7);
+  const dueDate = new Date(); 
+  dueDate.setDate(dueDate.getDate()+5);
 
   const ticketCount =count;
   const comments = [];
@@ -33,7 +34,7 @@ export async function createService( event: APIGatewayProxyEvent ): Promise<Tick
         userID: userId,
         ticket: ticketCount,
         createdAt: today.toISOString(),
-        dueDate: dueDate.toString(),
+        dueDate: dueDate.toISOString(),
         TicketStatus: "Open",
         Comments: comments,
         ...newService
@@ -50,7 +51,7 @@ export async function addcomment(event: APIGatewayProxyEvent) {
   return result;
 }
 
-export async function addUploadUrl(event: APIGatewayProxyEvent ): Promise<String>{
+export async function addUploadUrl(event: APIGatewayProxyEvent ): Promise<string>{
   const ticketid = event.pathParameters.ticket;
   const userId = getUserId(event);
   if (ticket_exist(event)){
@@ -92,4 +93,9 @@ export async function getTickets(event: APIGatewayProxyEvent): Promise<TicketIte
   const userId = getUserId(event);
   const status = await ticket.getTickets(userId);
   return status;
+}
+
+export async function uploadFile(url: string, file: Buffer) : Promise<void>{
+await Axios.put(url, file);
+
 }

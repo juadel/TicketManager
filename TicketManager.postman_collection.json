@@ -14,7 +14,7 @@
 					"oauth2": [
 						{
 							"key": "accessToken",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9VUTBOVVpHTmpOQlFrTkJORGszUTBOQk1EYzVOekE0UmpaR01EQkZOMFZCUmpBME5Ea3hSZyJ9.eyJnaXZlbl9uYW1lIjoiSnVhbiBNLiIsImZhbWlseV9uYW1lIjoiRGVsZ2FkbyIsIm5pY2tuYW1lIjoianVhZGVsbWFyIiwibmFtZSI6Ikp1YW4gTS4gRGVsZ2FkbyIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQUF1RTdtQTZ4ZWhlWUNqNWVOQS1Hc05saldRcG4tTGRNeTI3eTZvczN5SE03dyIsImxvY2FsZSI6ImVuIiwidXBkYXRlZF9hdCI6IjIwMTktMTItMzFUMDI6NTE6MzEuMTQ2WiIsImVtYWlsIjoianVhZGVsbWFyQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJpc3MiOiJodHRwczovL2Rldi1xbnY3YXAxYi5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDM1MzgxNjM5NDQ1ODM5NjU2MDAiLCJhdWQiOiJ3MGtPUTVaZlpQaDA0VGZlVTBLeGNSajJNOFZ3N2JMUSIsImlhdCI6MTU3Nzc2MDY5MSwiZXhwIjoxNTc3Nzk2NjkxfQ.Uvkc4Pre6Gre2IX04nhnWyMnd2jePngX6M9SLaYF_54mHVCRGggZBSm12EM0QEtHbAVPnnSV9s7CEpi5bT1iXWkLToMbR8u7X-Y_v4_lAqLCgJPmqy36ggEQgoI34wkhEnTS9wKzR8Q2UCiCV3tJnIihpReeyDP9P9_h0c8atucudKdds70eghwl0vNFvLnBDAaMHoJzjsWyQDqAQcSLbW7hJ9HA_gh21SPKmmsJdlpFSysIdtFPvR5MhUDZ-3gxHMuxPJ-7GJP-nIfDYeEI6OM70B9rf_HKvo7y1GYwhHqof7Nn0KMOV2LPQt2liIgveRs8SlvWU4z_HrtEqjuyXA",
+							"value": "",
 							"type": "string"
 						},
 						{
@@ -65,7 +65,7 @@
 					"oauth2": [
 						{
 							"key": "accessToken",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9VUTBOVVpHTmpOQlFrTkJORGszUTBOQk1EYzVOekE0UmpaR01EQkZOMFZCUmpBME5Ea3hSZyJ9.eyJnaXZlbl9uYW1lIjoiSnVhbiBNLiIsImZhbWlseV9uYW1lIjoiRGVsZ2FkbyIsIm5pY2tuYW1lIjoianVhZGVsbWFyIiwibmFtZSI6Ikp1YW4gTS4gRGVsZ2FkbyIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQUF1RTdtQTZ4ZWhlWUNqNWVOQS1Hc05saldRcG4tTGRNeTI3eTZvczN5SE03dyIsImxvY2FsZSI6ImVuIiwidXBkYXRlZF9hdCI6IjIwMTktMTItMzFUMDI6NTE6MzEuMTQ2WiIsImVtYWlsIjoianVhZGVsbWFyQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJpc3MiOiJodHRwczovL2Rldi1xbnY3YXAxYi5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDM1MzgxNjM5NDQ1ODM5NjU2MDAiLCJhdWQiOiJ3MGtPUTVaZlpQaDA0VGZlVTBLeGNSajJNOFZ3N2JMUSIsImlhdCI6MTU3Nzc2MDY5MSwiZXhwIjoxNTc3Nzk2NjkxfQ.Uvkc4Pre6Gre2IX04nhnWyMnd2jePngX6M9SLaYF_54mHVCRGggZBSm12EM0QEtHbAVPnnSV9s7CEpi5bT1iXWkLToMbR8u7X-Y_v4_lAqLCgJPmqy36ggEQgoI34wkhEnTS9wKzR8Q2UCiCV3tJnIihpReeyDP9P9_h0c8atucudKdds70eghwl0vNFvLnBDAaMHoJzjsWyQDqAQcSLbW7hJ9HA_gh21SPKmmsJdlpFSysIdtFPvR5MhUDZ-3gxHMuxPJ-7GJP-nIfDYeEI6OM70B9rf_HKvo7y1GYwhHqof7Nn0KMOV2LPQt2liIgveRs8SlvWU4z_HrtEqjuyXA",
+							"value": "",
 							"type": "string"
 						},
 						{
@@ -91,7 +91,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"CustomerName\": \"Juan Delgado\",\n    \"Title\": \"DVR DOWN 2\",\n    \"Description\": \"All cameras are down since las week333\" \n}",
+					"raw": "{\n\t\"CustomerName\": \"Juan Delgado\",\n    \"Title\": \"NVR DOWN\",\n    \"Description\": \"The customer informed that all cameras were down after a power outage\" \n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -124,7 +124,7 @@
 					"oauth2": [
 						{
 							"key": "accessToken",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9VUTBOVVpHTmpOQlFrTkJORGszUTBOQk1EYzVOekE0UmpaR01EQkZOMFZCUmpBME5Ea3hSZyJ9.eyJnaXZlbl9uYW1lIjoiSnVhbiBNLiIsImZhbWlseV9uYW1lIjoiRGVsZ2FkbyIsIm5pY2tuYW1lIjoianVhZGVsbWFyIiwibmFtZSI6Ikp1YW4gTS4gRGVsZ2FkbyIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQUF1RTdtQTZ4ZWhlWUNqNWVOQS1Hc05saldRcG4tTGRNeTI3eTZvczN5SE03dyIsImxvY2FsZSI6ImVuIiwidXBkYXRlZF9hdCI6IjIwMTktMTItMzFUMDI6NDI6MDMuNzA5WiIsImVtYWlsIjoianVhZGVsbWFyQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJpc3MiOiJodHRwczovL2Rldi1xbnY3YXAxYi5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDM1MzgxNjM5NDQ1ODM5NjU2MDAiLCJhdWQiOiJ3MGtPUTVaZlpQaDA0VGZlVTBLeGNSajJNOFZ3N2JMUSIsImlhdCI6MTU3Nzc2MDEyNCwiZXhwIjoxNTc3Nzk2MTI0fQ.f3Rdok2Mj6pNlPX7ngKM5l7s92_6DncTCtIqsMns2FJGKQMy4QgN-3ya3PGF82rEEr_DNyO6SivUe1phgygXqbFzwUNrhp0nQ3qcOhNnKUzBLIup1aSeso2mNk4sms2P_ju-HZcvLDJvlDiJ86_uc1IiB6f9qykYvN8-q8PeoQYQXpOVtD4NweonUkiT79PCn-7jCf3L-GFMJBG09P2DyzWI6S5kax6Gdq8srx2AUADyPm8RDtNehpa8wC4NC0mLN1AkhaqERR2Ggotja20Zz9SQvWIgBZWaPA2Z8z5hUhecwtE1fEi98KpbuGyXirYI0Jjyx0i5aEhtghe2q95BNw",
+							"value": "",
 							"type": "string"
 						},
 						{
@@ -149,7 +149,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://{{Domain}}.execute-api.ca-central-1.amazonaws.com/dev/ticket/state/4?state=Close",
+					"raw": "https://{{Domain}}.execute-api.ca-central-1.amazonaws.com/dev/ticket/state/{ticketNumber}?state=",
 					"protocol": "https",
 					"host": [
 						"{{Domain}}",
@@ -162,12 +162,12 @@
 						"dev",
 						"ticket",
 						"state",
-						"4"
+						"{ticketNumber}"
 					],
 					"query": [
 						{
 							"key": "state",
-							"value": "Close"
+							"value": ""
 						}
 					]
 				}
@@ -175,7 +175,7 @@
 			"response": []
 		},
 		{
-			"name": "ADD A COMMENT ON A TCIKET",
+			"name": "ADD A COMMENT ON A TICKET",
 			"request": {
 				"auth": {
 					"type": "oauth2",
@@ -208,7 +208,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"Comments\": \"third Comment on the ticket\"\n\t\n}",
+					"raw": "{\n\t\"Comments\": \"Called customer, a Tech will be dispatched, the visit has been confirmed\"\n\t\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -216,7 +216,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://{{Domain}}.execute-api.ca-central-1.amazonaws.com/dev/ticket/4/comment",
+					"raw": "https://{{Domain}}.execute-api.ca-central-1.amazonaws.com/dev/ticket/2/comment",
 					"protocol": "https",
 					"host": [
 						"{{Domain}}",
@@ -228,7 +228,7 @@
 					"path": [
 						"dev",
 						"ticket",
-						"4",
+						"2",
 						"comment"
 					]
 				}
@@ -243,7 +243,7 @@
 					"oauth2": [
 						{
 							"key": "accessToken",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9VUTBOVVpHTmpOQlFrTkJORGszUTBOQk1EYzVOekE0UmpaR01EQkZOMFZCUmpBME5Ea3hSZyJ9.eyJnaXZlbl9uYW1lIjoiSnVhbiBNLiIsImZhbWlseV9uYW1lIjoiRGVsZ2FkbyIsIm5pY2tuYW1lIjoianVhZGVsbWFyIiwibmFtZSI6Ikp1YW4gTS4gRGVsZ2FkbyIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQUF1RTdtQTZ4ZWhlWUNqNWVOQS1Hc05saldRcG4tTGRNeTI3eTZvczN5SE03dyIsImxvY2FsZSI6ImVuIiwidXBkYXRlZF9hdCI6IjIwMTktMTItMzFUMDI6NDI6MDMuNzA5WiIsImVtYWlsIjoianVhZGVsbWFyQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJpc3MiOiJodHRwczovL2Rldi1xbnY3YXAxYi5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDM1MzgxNjM5NDQ1ODM5NjU2MDAiLCJhdWQiOiJ3MGtPUTVaZlpQaDA0VGZlVTBLeGNSajJNOFZ3N2JMUSIsImlhdCI6MTU3Nzc2MDEyNCwiZXhwIjoxNTc3Nzk2MTI0fQ.f3Rdok2Mj6pNlPX7ngKM5l7s92_6DncTCtIqsMns2FJGKQMy4QgN-3ya3PGF82rEEr_DNyO6SivUe1phgygXqbFzwUNrhp0nQ3qcOhNnKUzBLIup1aSeso2mNk4sms2P_ju-HZcvLDJvlDiJ86_uc1IiB6f9qykYvN8-q8PeoQYQXpOVtD4NweonUkiT79PCn-7jCf3L-GFMJBG09P2DyzWI6S5kax6Gdq8srx2AUADyPm8RDtNehpa8wC4NC0mLN1AkhaqERR2Ggotja20Zz9SQvWIgBZWaPA2Z8z5hUhecwtE1fEi98KpbuGyXirYI0Jjyx0i5aEhtghe2q95BNw",
+							"value": "",
 							"type": "string"
 						},
 						{
@@ -260,8 +260,12 @@
 				},
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "file",
+					"file": {}
+				},
 				"url": {
-					"raw": "https://{{Domain}}.execute-api.ca-central-1.amazonaws.com/dev/ticket/6/attachment",
+					"raw": "https://{{Domain}}.execute-api.ca-central-1.amazonaws.com/dev/ticket/2/attachment",
 					"protocol": "https",
 					"host": [
 						"{{Domain}}",
@@ -273,10 +277,37 @@
 					"path": [
 						"dev",
 						"ticket",
-						"6",
+						"2",
 						"attachment"
 					]
 				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload a file to a Ticket",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "image/jpeg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": ""
+					}
+				},
+				"url": {
+					"raw": ""
+				},
+				"description": "user is caple to upload a file to each ticket, like work order in pdf or an image of the job completed"
 			},
 			"response": []
 		}
@@ -325,7 +356,7 @@
 	],
 	"variable": [
 		{
-			"id": "a53c5eb0-48ee-488e-aeb7-047b6a6f164a",
+			"id": "66232bbf-28b3-4909-bebf-7b2cd8a7f132",
 			"key": "Domain",
 			"value": "lu4tee0pvg",
 			"type": "string"

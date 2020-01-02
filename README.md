@@ -8,7 +8,7 @@ Ticket Manager is a cloud application that allows an user to register/login to c
         
 ## AUTHENTICATION
 
-Client front-end is not available in the moment, to register and login, OAUTH 2.0 settings are provided in the postman_collection.json file. just click on 'GET NEW ACCESS TOKEN' button in the AUTHORIZATION tab to register and login with your own user/password. Then, copy the full  id_token and past it in the Access Token space. 
+Client front-end is not available in the moment, to register and login, OAUTH 2.0 settings are provided in the postman_collection.json file. just click on 'GET NEW ACCESS TOKEN' button in the AUTHORIZATION tab, then click on Request Token to register and login with your own user/password, copy the full  id_token and past it in the Access Token space. 
 
 ## CREATE A TICKET - POST
 
@@ -67,11 +67,11 @@ NO Body or parameters are requiered, user just need to be logged in and authenti
  - api keys: None
  
  ### endpoints:
-  `POST - https://8s7maefyea.execute-api.ca-central-1.amazonaws.com/dev/ticket/{ticket}/attachment`
-  `GET - https://8s7maefyea.execute-api.ca-central-1.amazonaws.com/dev/ticket`
-  `PATCH - https://8s7maefyea.execute-api.ca-central-1.amazonaws.com/dev/ticket/state/{ticket}`
-  `POST - https://8s7maefyea.execute-api.ca-central-1.amazonaws.com/dev/ticket`
-  `POST - https://8s7maefyea.execute-api.ca-central-1.amazonaws.com/dev/ticket/{ticket}/comment`
+  - `POST - https://8s7maefyea.execute-api.ca-central-1.amazonaws.com/dev/ticket/{ticket}/attachment`
+  - `GET - https://8s7maefyea.execute-api.ca-central-1.amazonaws.com/dev/ticket`
+  - `PATCH - https://8s7maefyea.execute-api.ca-central-1.amazonaws.com/dev/ticket/state/{ticket}`
+  - `POST - https://8s7maefyea.execute-api.ca-central-1.amazonaws.com/dev/ticket`
+  - `POST - https://8s7maefyea.execute-api.ca-central-1.amazonaws.com/dev/ticket/{ticket}/comment`
 
 ### functions:
   - Auth: TicketManager-dev-Auth

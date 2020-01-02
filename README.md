@@ -60,37 +60,29 @@ NO Body or parameters are requiered, user just need to be logged in and authenti
 
 ### service: TicketManager
 
- stage: dev
- region: ca-central-1
- stack: TicketManager-dev
- resources: 52
- api keys:
-   None
- endpoints:
+ - stage: dev
+ - region: ca-central-1
+ - stack: TicketManager-dev
+ - resources: 52
+ - api keys: None
+ 
+ ### endpoints:
   `POST - https://8s7maefyea.execute-api.ca-central-1.amazonaws.com/dev/ticket/{ticket}/attachment`
   `GET - https://8s7maefyea.execute-api.ca-central-1.amazonaws.com/dev/ticket`
   `PATCH - https://8s7maefyea.execute-api.ca-central-1.amazonaws.com/dev/ticket/state/{ticket}`
   `POST - https://8s7maefyea.execute-api.ca-central-1.amazonaws.com/dev/ticket`
   `POST - https://8s7maefyea.execute-api.ca-central-1.amazonaws.com/dev/ticket/{ticket}/comment`
-functions:
-  Auth: TicketManager-dev-Auth
-  AddUploadUrl: TicketManager-dev-AddUploadUrl
-  Gettickets: TicketManager-dev-Gettickets
-  UpdateStatus: TicketManager-dev-UpdateStatus
-  CreateTicket: TicketManager-dev-CreateTicket
-  AddComment: TicketManager-dev-AddComment
-layers:
-  None
 
-Stack Outputs
-AuthLambdaFunctionQualifiedArn: arn:aws:lambda:ca-central-1:140936048568:function:TicketManager-dev-Auth:60
-AddCommentLambdaFunctionQualifiedArn: arn:aws:lambda:ca-central-1:140936048568:function:TicketManager-dev-AddComment:60
-UpdateStatusLambdaFunctionQualifiedArn: arn:aws:lambda:ca-central-1:140936048568:function:TicketManager-dev-UpdateStatus:52
-AddUploadUrlLambdaFunctionQualifiedArn: arn:aws:lambda:ca-central-1:140936048568:function:TicketManager-dev-AddUploadUrl:60
-GetticketsLambdaFunctionQualifiedArn: arn:aws:lambda:ca-central-1:140936048568:function:TicketManager-dev-Gettickets:52
-CreateTicketLambdaFunctionQualifiedArn: arn:aws:lambda:ca-central-1:140936048568:function:TicketManager-dev-CreateTicket:52
-ServiceEndpoint: https://8s7maefyea.execute-api.ca-central-1.amazonaws.com/dev
-ServerlessDeploymentBucketName: ticketmanager-dev-serverlessdeploymentbucket-seexv8p63knb
+### functions:
+  - Auth: TicketManager-dev-Auth
+  - AddUploadUrl: TicketManager-dev-AddUploadUrl
+  - Gettickets: TicketManager-dev-Gettickets
+  - UpdateStatus: TicketManager-dev-UpdateStatus
+  - CreateTicket: TicketManager-dev-CreateTicket
+  - AddComment: TicketManager-dev-AddComment
+
+
+
 
 
 
